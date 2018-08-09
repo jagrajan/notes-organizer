@@ -3,6 +3,8 @@ import express from 'express';
 import env from 'dotenv';
 import session from 'express-session';
 
+import indexRouter from '../routes/index';
+
 // Load dotenv
 env.config();
 
@@ -33,7 +35,7 @@ app.post('/login', (req, res, next) => {
 
 app.get('/login', (req, res) => res.render('login'));
 
-app.use((req, res) => res.render('index', { authenticated: req.session.authenticated === true }));
+app.use(indexRouter);
 
 // Listen for incoming requests
 app.listen(process.env.PORT, () => console.log(`App is running on port ${process.env.PORT}`));
