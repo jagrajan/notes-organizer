@@ -2,6 +2,7 @@
 const path = require('path');
 
 module.exports = {
+  // javascript will be run in a node environment
   target: 'node',
   entry: ['./src/index.js'],
   output: {
@@ -9,6 +10,7 @@ module.exports = {
     filename: 'server.bundle.js',
     libraryTarget: 'commonjs',
   },
+  // exclude npm packages as they will be available in the environemnt
   externals: [/^[a-z]/],
   module: {
     rules: [
