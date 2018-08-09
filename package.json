@@ -1,12 +1,13 @@
 {
-  "name": "notes",
+  "name": "notes-organizer",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "webpack --mode development",
+    "start": "node dist/server.bundle.js",
     "watch": "webpack --mode development --watch",
-    "watch-server": "nodemon dist/server.bundle.js"
+    "watch-server": "npm run watch & nodemon dist/server.bundle.js"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
