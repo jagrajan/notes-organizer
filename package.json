@@ -6,7 +6,7 @@
   "homepage": "https://github.com/jagrajan/notes-organizer",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jagrajan/notes-organizer.git",
+    "url": "https://github.com/jagrajan/notes-organizer.git"
   },
   "scripts": {
     "dev": "webpack --mode development",
