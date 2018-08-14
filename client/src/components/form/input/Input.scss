@@ -1,0 +1,86 @@
+.input {
+
+  &__label {
+    display: block;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    transform: translateY(-3rem);
+    opacity: 0;
+    transition: .2s all;
+    color: $color-grey-light-4;
+  }
+
+  &__field {
+    font-size: 1.6rem;
+    display: block;
+    width: 100%;
+    padding: 1rem 1rem;
+    border: none;
+    border-bottom: 1px solid transparent;
+    font-family: $font-default;
+
+    &::placeholder {
+      font-family: $font-default;
+      color: $color-grey-light-3;
+      transition: .2s all;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus::placeholder {
+      opacity: 0;
+    }
+
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+  
+  &__border {
+    height: 2px;
+    display: block;
+    width: 0;
+    transition: all .2s;
+    transform: translateX(50%);
+  }
+
+  &__field:focus + &__border {
+    width: 100%;
+    background-color: orange;
+    transform: translateX(0);
+
+    &--error {
+      background-color: red;
+    }
+
+    &--success {
+      background-color: green;
+    }
+  }
+
+  &__border--error {
+    width: 100%;
+    transform: translateX(0);
+    background-color: red;
+  }
+
+  &__border--success {
+    width: 100%;
+    transform: translateX(0);
+    background-color: green;
+  }
+
+  &__field:focus ~ &__label {
+    opacity: 1;
+    transform: translateY(-7rem);
+  }
+
+  &__error {
+    color: red;
+    margin-left: 1rem;
+  }
+
+}

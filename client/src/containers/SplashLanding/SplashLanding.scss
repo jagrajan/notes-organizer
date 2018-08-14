@@ -1,0 +1,32 @@
+.splash-landing {
+  background-image: 
+    linear-gradient(to right, rgba($color-primary-light, 0.35),
+    rgba($color-primary-dark, 0.35)),
+    url('beach.jpg');
+  background-size: cover;
+  background-position: bottom;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    padding: 2.5rem 4rem;
+    background-color: rgba(255, 255, 255, .75);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, .3);
+  }
+
+  &__heading {
+    font-size: 4rem;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  &__form {
+    border-radius: 3px;
+    min-width: 30rem;
+  }
+}

@@ -3,7 +3,9 @@
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit; }
+  box-sizing: inherit; 
+  font-size: inherit;
+}
 
 html {
   // This defines what 1rem is
@@ -12,4 +14,5 @@ html {
 
 body {
   box-sizing: border-box;
+  font-family: $font-default;
 }
