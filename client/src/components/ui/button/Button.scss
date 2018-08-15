@@ -24,4 +24,13 @@
     transform: scale(1.1);
   }
 
+  &:disabled {
+    border-color: $color-primary-light;
+    color: $color-primary-light;
+    background-color: transparent;
+    transform: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
 }

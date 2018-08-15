@@ -42,11 +42,17 @@ const LogInForm = props => {
           name="password"
         />
       </div>
-      <Button type="submit">
-        Submit
-      </Button>
+      <div className="u-center-text">
+        <Button type="submit" disabled={pristine}>
+          {submitting ? 'Authenticating' : 'Sign in'}
+        </Button>
+      </div>
     </form>
   );
+}
+
+const submit = values => {
+  console.log(values);
 }
 
 const Form = reduxForm({
@@ -59,8 +65,8 @@ class SplashLanding extends Component {
     return (
       <div className="splash-landing">
         <div className="splash-landing__container">
-          <h1 className="splash-landing__heading">Sign In</h1>
-          <Form />
+          <h1 className="splash-landing__heading">Notes</h1>
+          <Form onSubmit={submit} />
         </div>
       </div>
     );
