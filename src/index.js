@@ -4,6 +4,8 @@ import env from 'dotenv';
 import jwt from 'jsonwebtoken';
 import passport from 'passport';
 import morgan from 'morgan';
+import mysql from 'mysql';
+import myConnection from 'express-myconnection';
 
 import indexRouter from './routes/index';
 
@@ -25,26 +27,36 @@ passport.use('local-login', localLoginStrategy);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-  if (!req.headers.authorization) {
-    return res.status(401).end();
-  }
+const dbOptions = {
+  host: process.env.DATABASE_HOST,
+  user: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
+  port: process.env.DATABASE_PORT,
+  database: process.env.DATABASE_NAME,
+};
 
-  // get the last part from a authorization header string like "bearer token-value"
-  const token = req.headers.authorization.split(' ')[1];
+app.use(myConnection(mysql, dbOptions, 'single'));
 
-  // decode the token using a secret key-phrase
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(401).end();
-    }
+// app.use((req, res, next) => {
+//   if (!req.headers.authorization) {
+//     return res.status(401).end();
+//   }
 
-    const auth = decoded.auth;
+//   // get the last part from a authorization header string like "bearer token-value"
+//   const token = req.headers.authorization.split(' ')[1];
 
-    console.log('Authorization: ', decoded);
-  });
-  next();
-});
+//   // decode the token using a secret key-phrase
+//   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+//     if (err) {
+//       return res.status(401).end();
+//     }
+
+//     const auth = decoded.auth;
+
+//     console.log('Authorization: ', decoded);
+//   });
+//   next();
+// });
 
 app.use(morgan('tiny'));
 

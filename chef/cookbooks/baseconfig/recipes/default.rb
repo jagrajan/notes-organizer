@@ -18,3 +18,6 @@ execute 'ntp_restart' do
 end
 
 package "mysql-server"
+
+execute "echo \"CREATE USER IF NOT EXISTS 'notes'@'%' IDENTIFIED by 'password';\" | sudo mysql -u root"
+execute "echo \"GRANT ALL PRIVILEGES ON *.* to 'notes'@'%';\" | sudo mysql -u root"

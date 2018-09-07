@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -17,7 +18,12 @@ const store = createStore(rootReducer, composeEnhancers(
 
 ReactDOM.render(
   <Provider store={store}>
-    <SplashLanding />
+    <BrowserRouter>
+      <Switch>
+        <Route path="/signup" component={SplashLanding} />
+        <Route path="/" exact component={SplashLanding} />
+      </Switch>
+    </BrowserRouter>
   </Provider>,
 document.getElementById('root'));
 

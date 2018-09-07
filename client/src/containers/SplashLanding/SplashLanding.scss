@@ -29,4 +29,20 @@
     border-radius: 3px;
     min-width: 30rem;
   }
+
+  &__link,
+  &__link:link,
+  &__link:visited {
+    text-align: center;
+    display: block;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: $color-blue-dark-1;
+    transition: .2s all;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 }
